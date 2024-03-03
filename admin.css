@@ -1,0 +1,32 @@
+main {
+    margin: 15px;
+}
+
+.request-table {
+    margin-bottom: 50px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,
+th {
+    border: 1px solid var(--light-color);
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: var(--light-color);
+}
+
+.form-div {
+    width: 40%;
+}
+
+.admin-update-button {
+    height: 32px;
+    font-size: 18px;
+}

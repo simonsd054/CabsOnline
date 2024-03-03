@@ -1,0 +1,18 @@
+:root {
+  --primary-color: #444343;
+  --secondary-color: #76768d;
+  --light-color: #dfdcdc;
+}
+
+body {
+  margin: 0;
+}
+
+.header {
+  color: var(--primary-color);
+}
+
+.sub-text {
+  font-size: 20px;
+  color: var(--primary-color);
+}

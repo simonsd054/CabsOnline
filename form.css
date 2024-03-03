@@ -1,0 +1,69 @@
+form {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-item {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 10px;
+}
+
+.form-label {
+    font-size: 20px;
+    color: var(--primary-color);
+}
+
+.form-input {
+    height: 32px;
+    outline: none;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.form-input:focus {
+    /* border-color: var(--primary-color); */
+    box-shadow: 0 0 10px 1px var(--secondary-color);
+}
+
+/* For removing the arrows in type="number" */
+.form-input-phone::-webkit-outer-spin-button,
+.form-input-phone::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.form-input-phone[type="number"] {
+    -moz-appearance: textfield;
+}
+/* End removing arrow css */
+
+.form-input-buton-div {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.form-input-button {
+    background-color: var(--primary-color);
+    outline: none;
+    border: none;
+    height: 50px;
+    width: 40%;
+    font-size: 20px;
+    color: white;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+.form-input-button:hover,
+.form-input-button:focus-visible {
+    background-color: #5e5b5b;
+    cursor: pointer;
+    box-shadow: 0 0 10px 1px var(--secondary-color);
+}
