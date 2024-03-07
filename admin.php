@@ -29,8 +29,30 @@
                 <form method="post">
                     <div class="form-item">
                         <label class="form-label" for="reference">Reference Number:</label>
-                        <input class="form-input" name="reference" placeholder="Reference Number">
+                        <input class="form-input" id="reference" name="reference" placeholder="Reference Number">
                     </div>
+                    <?php
+                    if ($_SERVER['REQUEST_METHOD'] == "POST") {
+
+                        $reference = $_POST["reference"];
+                        if (
+                            !isset($reference) ||
+                            empty($reference)
+                        ) {
+                            $erroMessage = "<span class='error-text'>Reference field is required.</span>";
+                        } else {
+                            $DBConnect = @mysqli_connect("localhost", "root", "", "taxi_db")
+                                or die("<p>Unable to connect to the database server.</p>" . "<p>Error code " . mysqli_connect_errno() . ": " . mysqli_connect_error()) . "</p>";
+
+                            $SQLstring = "update booking set status='assigned' where booking_number=$reference";
+
+                            $queryResult = @mysqli_query($DBConnect, $SQLstring)
+                                or die("<p>Unable to query the table.</p>" . "<p>Error code " . mysqli_errno($DBConnect) . ": " . mysqli_error($DBConnect)) . "</p>";
+
+                            echo "<span class='sub-text'>Taxi assigned to the booking successfully</span>";
+                        }
+                    }
+                    ?>
                     <div class="form-input-buton-div">
                         <button class="form-input-button admin-button">Update</button>
                     </div>
