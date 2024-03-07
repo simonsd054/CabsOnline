@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="index.css" />
     <link rel="stylesheet" href="form.css" />
     <link rel="stylesheet" href="admin.css" />
+    <script src="admin.js"></script>
     <title>Admin</title>
 </head>
 
@@ -17,28 +18,8 @@
             <p class="sub-text">
                 1. Click below button to search for all unassigned booking requests with a pick-up time within 3 hours.
             </p>
-            <table>
-                <tr>
-                    <th>Reference #</th>
-                    <th>Customer Name</th>
-                    <th>Passenger Name</th>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Richard</td>
-                    <td>Richard</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>Steve</td>
-                    <td>Paul</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>Adam</td>
-                    <td>Bruce</td>
-                </tr>
-            </table>
+            <input type="button" class="form-input-button admin-button" value="List all" onclick="displayAllBookings()">
+            <div id="bookings"></div>
         </div>
         <div>
             <p class="sub-text">
@@ -51,7 +32,7 @@
                         <input class="form-input" name="reference" placeholder="Reference Number">
                     </div>
                     <div class="form-input-buton-div">
-                        <button class="form-input-button admin-update-button">Update</button>
+                        <button class="form-input-button admin-button">Update</button>
                     </div>
                 </form>
             </div>
