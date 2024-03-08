@@ -27,12 +27,12 @@ function toXml($queryResult, $DBConnect)
 
         $email = $row["email"];
 
-        $SQLstring = "select name from user where email='$email'";
+        $SQLstringForCustomerName = "select name from user where email='$email'";
 
-        $queryResult = @mysqli_query($DBConnect, $SQLstring)
+        $queryResultForCustomerName = @mysqli_query($DBConnect, $SQLstringForCustomerName)
             or die("<p>Unable to query the table.</p>" . "<p>Error code " . mysqli_errno($DBConnect) . ": " . mysqli_error($DBConnect)) . "</p>";
 
-        $queryValue = mysqli_fetch_assoc($queryResult);
+        $queryValueForCustomerName = mysqli_fetch_assoc($queryResultForCustomerName);
 
         $booking_number = $doc->createElement('booking_number');
         $booking_number = $booking->appendChild($booking_number);
@@ -41,7 +41,7 @@ function toXml($queryResult, $DBConnect)
 
         $cname = $doc->createElement('cname');
         $cname = $booking->appendChild($cname);
-        $value = $doc->createTextNode($queryValue["name"]);
+        $value = $doc->createTextNode($queryValueForCustomerName["name"]);
         $value = $cname->appendChild($value);
 
         $name = $doc->createElement('name');

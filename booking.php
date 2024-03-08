@@ -18,6 +18,9 @@
             <?php
             // get email from get superglobal from url
             $email = $_GET["Email"];
+            if (empty($email)) {
+                header("Location:login.php");
+            }
             if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
                 // get all fields
