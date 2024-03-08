@@ -49,7 +49,7 @@
                             $queryResult = @mysqli_query($DBConnect, $SQLstring)
                                 or die("<p>Unable to query the table.</p>" . "<p>Error code " . mysqli_errno($DBConnect) . ": " . mysqli_error($DBConnect)) . "</p>";
 
-                            echo "<span class='sub-text'>Taxi assigned to the booking successfully. Click 'List all' to fetch the updated data.</span>";
+                            echo "<span class='success-text'>Taxi assigned to the booking successfully. Click 'List all' to fetch the updated data.</span>";
                         }
                     }
                     ?>

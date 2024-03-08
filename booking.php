@@ -87,9 +87,10 @@
                         $queryValue = mysqli_fetch_assoc($queryResult);
 
                         $booking_number = $queryValue["booking_number"];
-                        echo "<span class='sub-text'>Thank you!
+                        echo "<span class='success-text'>Thank you!
                             Your booking reference number is $booking_number. We will pick up the
-                            passengers in front of your provided address at $pickup_time on $pickup_date.</span>";
+                            passengers in front of your provided address at $pickup_time on $pickup_date.
+                            You can fill up the form again for another booking.</span>";
                     } else {
                         $erroMessage = "<span class='error-text'>Pickup time must be at least 40 minutes from now.</span>";
                     }

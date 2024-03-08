@@ -17,6 +17,10 @@ body {
   color: var(--primary-color);
 }
 
+.success-text {
+  color: green;
+}
+
 .error-text {
   color: red;
 }
