@@ -14,7 +14,7 @@
     <main>
         <div class="card">
             <h1 class="card-header">Register</h1>
-            <form method="POST">
+            <form class="form" method="POST">
                 <div class="form-item">
                     <label class="form-label" for="name">Name:</label>
                     <input class="form-input" name="name" placeholder="Name">

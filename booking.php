@@ -98,7 +98,7 @@
             }
             ?>
             <p class="sub-text">Please fill the fields below to book a cab</p>
-            <form method="post">
+            <form class="form" method="post">
                 <div class="form-item">
                     <label class="form-label" for="name">Passenger Name:</label>
                     <input class="form-input" id="name" name="name" placeholder="Name" />

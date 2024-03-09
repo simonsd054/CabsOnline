@@ -14,7 +14,7 @@
     <main>
         <div class="card">
             <h1 class="header">Login</h1>
-            <form method="post">
+            <form class="form" method="post">
                 <div class="form-item">
                     <label class="form-label" for="email">Email:</label>
                     <input type="email" class="form-input" name="email" placeholder="Email (user@email.com)">
