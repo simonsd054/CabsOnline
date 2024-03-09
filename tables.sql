@@ -1,4 +1,6 @@
-CREATE DATABASE tax_db;
+CREATE DATABASE taxi_db;
+
+USE taxi_db;
 
 CREATE TABLE user (
     email VARCHAR(50) NOT NULL,

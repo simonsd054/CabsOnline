@@ -44,12 +44,25 @@
                             $DBConnect = @mysqli_connect("localhost", "root", "", "taxi_db")
                                 or die("<p>Unable to connect to the database server.</p>" . "<p>Error code " . mysqli_connect_errno() . ": " . mysqli_connect_error()) . "</p>";
 
-                            $SQLstring = "update booking set status='assigned' where booking_number=$reference";
 
-                            $queryResult = @mysqli_query($DBConnect, $SQLstring)
+                            $SQLstringForChecking = "select * from booking where status='unassigned'
+                                and pickup_time between now() and DATE_ADD(now(), INTERVAL 3 HOUR) 
+                                and booking_number=$reference";
+
+                            $queryResultForChecking = @mysqli_query($DBConnect, $SQLstringForChecking)
                                 or die("<p>Unable to query the table.</p>" . "<p>Error code " . mysqli_errno($DBConnect) . ": " . mysqli_error($DBConnect)) . "</p>";
 
-                            echo "<span class='success-text'>Taxi assigned to the booking successfully. Click 'List all' to fetch the updated data.</span>";
+                            if (mysqli_num_rows($queryResultForChecking) > 0) {
+
+                                $SQLstring = "update booking set status='assigned' where booking_number=$reference";
+
+                                $queryResult = @mysqli_query($DBConnect, $SQLstring)
+                                    or die("<p>Unable to query the table.</p>" . "<p>Error code " . mysqli_errno($DBConnect) . ": " . mysqli_error($DBConnect)) . "</p>";
+
+                                echo "<span class='success-text'>Taxi assigned to the booking successfully. Click 'List all' to fetch the updated data.</span>";
+                            } else {
+                                echo "<span class='error-text'>No booking found for the given id within 3 hours. Click 'List all' to fetch the data and see it again.</span>";
+                            }
                         }
                     }
                     ?>
