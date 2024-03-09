@@ -91,6 +91,22 @@
                             Your booking reference number is $booking_number. We will pick up the
                             passengers in front of your provided address at $pickup_time on $pickup_date.
                             You can fill up the form again for another booking.</span>";
+
+                        $SQLstringForCustomerName = "select name from user where email='$email'";
+
+                        $queryResultForCustomerName = @mysqli_query($DBConnect, $SQLstringForCustomerName)
+                            or die("<p>Unable to query the table.</p>" . "<p>Error code " . mysqli_errno($DBConnect) . ": " . mysqli_error($DBConnect)) . "</p>";
+
+                        $queryValueForCustomerName = mysqli_fetch_assoc($queryResultForCustomerName);
+
+                        $customer_name = $queryValueForCustomerName["name"];
+                        
+
+                        $to = $email;
+                        $subject = "Your booking request with CabsOnline!";
+                        $message = "Dear $customer_name, Thanks for booking with CabsOnline! Your booking reference number is $booking_number. We will pick up the passengers in front of your provided address at $pickup_time on $pickup_date.";
+                        $headers = "From booking@cabsonline.com.au";
+                        mail($to, $subject, $message, $headers, "-r 103158504@student.swin.edu.au");
                     } else {
                         $erroMessage = "<span class='error-text'>Pickup time must be at least 40 minutes from now.</span>";
                     }
