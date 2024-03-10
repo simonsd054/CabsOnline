@@ -1,3 +1,13 @@
+/*
+Student Name: Simon Dahal
+Student ID: 103158504
+
+Function of the file: This file is used to provide styling for the common elements
+such as error text, success text, etc. This file also defines the values for the
+variables such as primary-color, secondary-color, etc.
+*/
+
+
 :root {
   --primary-color: #444343;
   --secondary-color: #76768d;

@@ -1,3 +1,11 @@
+/*
+Student Name: Simon Dahal
+Student ID: 103158504
+
+Function of the file: This file is to provide styling for the cards used in various files
+such as registration.php, login.php and booking.php.
+*/
+
 main {
     min-height: 100vh;
     display: flex;

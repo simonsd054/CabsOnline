@@ -1,3 +1,12 @@
+<!--
+Student Name: Simon Dahal
+Student ID: 103158504
+
+Function of the file: This file allows the user to make a booking for a cab
+by providing details such as passenger name, passenger contact number,
+passenger address, destination suburb, pickup date and pickup time.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 

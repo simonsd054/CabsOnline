@@ -1,3 +1,11 @@
+<!--
+Student Name: Simon Dahal
+Student ID: 103158504
+
+Function of the file: This file allows user to log in to the system using their credentials
+which are the email address and password they used while registering in to the system.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 

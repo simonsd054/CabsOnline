@@ -1,3 +1,11 @@
+<!--
+Student Name: Simon Dahal
+Student ID: 103158504
+
+Function of the file: This file allows user to register for the system using their information
+such as name, email address, password, confirm password and phone number.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 
