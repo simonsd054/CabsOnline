@@ -15,7 +15,6 @@ are within 3 hours and admin can then assign taxi to those bookings.
     <link rel="stylesheet" href="index.css" />
     <link rel="stylesheet" href="form.css" />
     <link rel="stylesheet" href="admin.css" />
-    <script src="admin.js"></script>
     <title>Admin</title>
 </head>
 
@@ -114,9 +113,8 @@ are within 3 hours and admin can then assign taxi to those bookings.
                     </div>
 
                     <?php
-                    $refButton = $_POST["ref_button"];
-                    if ($_SERVER['REQUEST_METHOD'] == "POST" && (isset($refButton) ||
-                        !empty($refButton))) {
+                    if ($_SERVER['REQUEST_METHOD'] == "POST" && (isset($_POST["ref_button"]) ||
+                        !empty($_POST["ref_button"]))) {
 
                         $reference = $_POST["reference"];
                         if (
@@ -138,7 +136,7 @@ are within 3 hours and admin can then assign taxi to those bookings.
 
                             if (mysqli_num_rows($queryResultForChecking) > 0) {
 
-                                $SQLstring = "update booking set status='assigned' where booking_number=$reference";
+                                $SQLstring = "update booking set status='assigned' where booking_number='$reference'";
 
                                 $queryResult = @mysqli_query($DBConnect, $SQLstring)
                                     or die("<p>Unable to query the table.</p>" . "<p>Error code " . mysqli_errno($DBConnect) . ": " . mysqli_error($DBConnect)) . "</p>";

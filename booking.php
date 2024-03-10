@@ -66,6 +66,7 @@ passenger address, destination suburb, pickup date and pickup time.
                     // here if every input field checks out
 
                     date_default_timezone_set('Australia/Sydney');
+                    $booking_number = uniqid();
                     $booking_time = date("Y-m-d H:i:s");
                     $booking_time_str = strtotime($booking_time);
                     $pickup_full_time = $pickup_date . " " . $pickup_time;
@@ -81,21 +82,12 @@ passenger address, destination suburb, pickup date and pickup time.
 
                         $SQLstring = "
                             insert into booking
-                            (email, name, contact, unit_number, street_number, street_name, passenger_suburb, destination_suburb, pickup_time, booking_time) values
-                            ('$email', '$name', '$contact', '$unit_number', '$street_number', '$street_name', '$passenger_suburb', '$destination_suburb', '$pickup_full_time', '$booking_time')";
+                            (booking_number, email, name, contact, unit_number, street_number, street_name, passenger_suburb, destination_suburb, pickup_time, booking_time) values
+                            ('$booking_number', '$email', '$name', '$contact', '$unit_number', '$street_number', '$street_name', '$passenger_suburb', '$destination_suburb', '$pickup_full_time', '$booking_time')";
 
                         $queryResult = @mysqli_query($DBConnect, $SQLstring)
                             or die("<p>Unable to query the table.</p>" . "<p>Error code " . mysqli_errno($DBConnect) . ": " . mysqli_error($DBConnect)) . "</p>";
 
-                        $recently_inserted_id = mysqli_insert_id($DBConnect);
-                        $SQLstring = "select * from booking where booking_number='$recently_inserted_id'";
-
-                        $queryResult = @mysqli_query($DBConnect, $SQLstring)
-                            or die("<p>Unable to query the table.</p>" . "<p>Error code " . mysqli_errno($DBConnect) . ": " . mysqli_error($DBConnect)) . "</p>";
-
-                        $queryValue = mysqli_fetch_assoc($queryResult);
-
-                        $booking_number = $queryValue["booking_number"];
                         echo "<span class='success-text'>Thank you!
                             Your booking reference number is $booking_number. We will pick up the
                             passengers in front of your provided address at $pickup_time on $pickup_date.

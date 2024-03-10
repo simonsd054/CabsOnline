@@ -11,7 +11,7 @@ CREATE TABLE user (
 );
 
 CREATE TABLE booking (
-    booking_number INT NOT NULL AUTO_INCREMENT,
+    booking_number VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL,
     name VARCHAR(100) NOT NULL,
     contact VARCHAR(100) NOT NULL,
