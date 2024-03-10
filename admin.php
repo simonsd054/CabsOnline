@@ -123,7 +123,7 @@
 
                             $SQLstringForChecking = "select * from booking where status='unassigned'
                                 and pickup_time between now() and DATE_ADD(now(), INTERVAL 3 HOUR) 
-                                and booking_number=$reference";
+                                and booking_number='$reference'";
 
                             $queryResultForChecking = @mysqli_query($DBConnect, $SQLstringForChecking)
                                 or die("<p>Unable to query the table.</p>" . "<p>Error code " . mysqli_errno($DBConnect) . ": " . mysqli_error($DBConnect)) . "</p>";
