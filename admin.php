@@ -137,7 +137,7 @@
 
                                 echo "<span class='success-text'>Taxi assigned to the booking successfully. Click 'List all' to fetch the updated data.</span>";
                             } else {
-                                echo "<span class='error-text'>No booking found for the given id within 3 hours. Click 'List all' to fetch the data and see it again.</span>";
+                                echo "<span class='error-text'>No unassigned booking found for the given id within 3 hours. Click 'List all' to fetch the data and see it again.</span>";
                             }
                         }
                     }
